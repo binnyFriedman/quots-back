@@ -1,0 +1,10 @@
+{
+  "name": "prod-backend",
+  "version": "1.0.0",
+  "description": "backend for quots",
+  "main": "index.js",
+  "repository": "https://github.com/binnyFriedman/quots-back.git",
+  "author": "binny",
+  "license": "MIT",
+  "private": false
+}
