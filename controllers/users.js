@@ -20,9 +20,8 @@ signToken = user => {
 module.exports = {
   signup: async (req, res, next) => {
     //get email and password
-    console.log(req);
 
-    const { email, password } = req.body;
+    const { email, password } = req.value.body;
     findUser(email).then(user => {
       if (!user) {
         //email does not exist yet in the system

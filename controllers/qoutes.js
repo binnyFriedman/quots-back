@@ -8,8 +8,6 @@ module.exports = {
       .populate("Sender")
       .exec()
       .then(quots => {
-        console.log(quots);
-
         res.status(200).json({ Quotes: quots });
       })
       .catch(error => {
