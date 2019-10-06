@@ -13,14 +13,16 @@ signToken = user => {
       iat: new Date().getTime(),
       exp: new Date().setDate(new Date().getDate() + 1),
     },
-    process.env.JWT_SECRET,
+    "nekudawebdevelopmentsolutions2019",
   );
 };
 
 module.exports = {
   signup: async (req, res, next) => {
     //get email and password
-    const { email, password } = req.value.body;
+    console.log(req);
+
+    const { email, password } = req.body;
     findUser(email).then(user => {
       if (!user) {
         //email does not exist yet in the system
@@ -62,7 +64,7 @@ module.exports = {
     const token = signToken(req.user);
     res.status(200).json({ token });
   },
- 
+
   getOne: async (req, res, next) => {
     findUser(req.body.email).then(user => {
       if (!user) {

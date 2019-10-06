@@ -13,7 +13,7 @@ module.exports = {
         res.status(200).json({ Quotes: quots });
       })
       .catch(error => {
-        res.status(402).json({ error: error });
+        res.status(500).json({ error: error });
       });
   },
   getSingleQuote: async (req, res, next) => {

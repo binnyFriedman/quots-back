@@ -27,7 +27,7 @@ makeRequest = (endpoint, payload) => {
       {
         url: endpoint,
         body: JSON.stringify(payload),
-        headers: { Authorization: process.env.API2PDF },
+        headers: { Authorization: "91b1691e-b550-44f1-925b-6b8dc63682ad" },
       },
       (e, r, body) => {
         var result = JSON.parse(body);

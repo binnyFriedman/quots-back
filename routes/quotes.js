@@ -8,7 +8,7 @@ const { validateBody, schemas } = require("../helpers/routeHelpers");
 const passportJWT = passport.authenticate("jwt", { session: false });
 const QoutsController = require("../controllers/qoutes");
 
-router.route("/").get(passportJWT, QoutsController.getQuotes);
+router.route("/").get(QoutsController.getQuotes);
 
 router.route("/single/:id").get(passportJWT, QoutsController.getSingleQuote);
 router.route("/delete/:id").post(passportJWT, QoutsController.deleteQuote);

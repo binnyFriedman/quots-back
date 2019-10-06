@@ -25,8 +25,6 @@ router
 
 router.route("/oauth/google").post(passportGoogle, UsersController.googleOauth);
 
-router.route("/secret").get(passportJWT, UsersController.secret);
-
 router.route("/get").get(passportJWT, UsersController.getOne);
 
 router.route("/getone").get(passportJWT, UsersController.byid);

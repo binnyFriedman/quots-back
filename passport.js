@@ -10,7 +10,7 @@ passport.use(
   new JWTstrategy(
     {
       jwtFromRequest: ExtractJwt.fromHeader("authorization"),
-      secretOrKey: process.env.JWT_SECRET,
+      secretOrKey: "nekudawebdevelopmentsolutions2019",
     },
     async (payload, done) => {
       try {
@@ -63,8 +63,9 @@ passport.use(
   "googleToken",
   new GoogleToken(
     {
-      clientID: process.env.GOOGLE_C_ID,
-      clientSecret: process.env.GOOGLE_SECRET,
+      clientID:
+        "1088812538656-b1o8sob7shgosjhdvu833kg55ats2ejc.apps.googleusercontent.com",
+      clientSecret: "J-zVlFzVUWhJFnrbOG-_I2oQ",
     },
     async (accessToken, refreshToken, profile, done) => {
       try {
