@@ -3,6 +3,7 @@ const cors = require("cors");
 const express = require("express");
 const bodyparser = require("body-parser");
 const mongoose = require("mongoose");
+
 const connectionString =
   "mongodb+srv://binny:xB7xGHp0GAQzTHqF@maincluster-pyapv.mongodb.net/Quets?retryWrites=true&w=majority";
 const connector = mongoose
@@ -39,6 +40,7 @@ app.use(morgan("dev"));
 app.use("/users", users);
 app.use("/quotes", quotes);
 app.use("/services", services);
-app.listen(3000, () => console.log("listening"));
+app.use(connect.static("public"));
+app.listen(3000, "0.0.0.0", () => console.log("listening"));
 
 module.exports = app;
