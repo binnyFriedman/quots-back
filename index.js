@@ -36,7 +36,7 @@ const quotes = require("./routes/quotes");
 const services = require("./routes/services");
 
 // set routes
-app.use(morgan("dev"));
+app.use(morgan("prod"));
 app.use("/users", users);
 app.use("/quotes", quotes);
 app.use("/services", services);
