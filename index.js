@@ -40,7 +40,6 @@ app.use(morgan("dev"));
 app.use("/users", users);
 app.use("/quotes", quotes);
 app.use("/services", services);
-// app.use(connect.static("public"));
 app.listen(3000, "0.0.0.0", () => console.log("listening"));
 
 module.exports = app;
