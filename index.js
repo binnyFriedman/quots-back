@@ -3,7 +3,8 @@ const cors = require("cors");
 const express = require("express");
 const bodyparser = require("body-parser");
 const mongoose = require("mongoose");
-
+const connect = require("connect");
+const http = require("http");
 const connectionString =
   "mongodb+srv://binny:xB7xGHp0GAQzTHqF@maincluster-pyapv.mongodb.net/Quets?retryWrites=true&w=majority";
 const connector = mongoose
