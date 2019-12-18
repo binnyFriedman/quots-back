@@ -11,9 +11,9 @@ signToken = user => {
       iss: "binnyAtNekuda",
       sub: user.id,
       iat: new Date().getTime(),
-      exp: new Date().setDate(new Date().getDate() + 1),
+      exp: new Date().setDate(new Date().getDate() + 1)
     },
-    "nekudawebdevelopmentsolutions2019",
+    "nekudawebdevelopmentsolutions2019"
   );
 };
 
@@ -24,14 +24,19 @@ module.exports = {
     const { email, password } = req.value.body;
     findUser(email).then(user => {
       if (!user) {
+        if (!email.endsWith("@nekuda.co.il")) {
+          return res
+            .status(403)
+            .json({ message: "אך ורק כתובת מייל  פנימית מורשית" });
+        }
         //email does not exist yet in the system
         const userI = new User({
           method: "local",
           email: email,
           local: {
-            password: password,
+            password: password
           },
-          displayName: "",
+          displayName: ""
         });
         userI
           .save()
@@ -45,7 +50,7 @@ module.exports = {
       } else {
         return res.json({
           message:
-            "this email is allready taken, please login using " + user.method,
+            "this email is allready taken, please login using " + user.method
         });
       }
     });
@@ -70,12 +75,12 @@ module.exports = {
         res.json({
           auth: false,
           message:
-            "Sorry we did not find your email registered please contact dev team to solve this",
+            "Sorry we did not find your email registered please contact dev team to solve this"
         });
       } else {
         res.json({
           auth: true,
-          message: "Welcome back" + user.name,
+          message: "Welcome back" + user.name
         });
       }
     });
@@ -100,5 +105,5 @@ module.exports = {
     }
     console.log(updatedUser);
     res.status(200).json({ message: "user updated successfully" });
-  },
+  }
 };
